@@ -1,0 +1,13 @@
+﻿@model MyWebApp.Entities.Dtos.ExperienceDtos.ExperienceListDto
+@foreach (var item in Model.Experiences)
+{
+    <div class="deneyim col-12 text-left px-3">
+        <h4 class="font-weight-bold pl-2">@item.Title</h4>
+        <h5><i class="fas fa-map-marker-alt"></i> @item.Workplace</h5>
+        <h5><i class="fas fa-calendar-alt"></i> @item.Duration</h5>
+        <p>
+            @item.Description
+        </p>
+    </div>
+    <hr>
+}

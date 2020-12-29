@@ -1,0 +1,81 @@
+﻿@model MyWebApp.Entities.Dtos.HomePageSliderDtos.HomePageSliderListDto
+
+@{
+    ViewBag.Title = "Slider";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item">Slider Listesi</li>
+</ol>
+<hr />
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <h2 class="text-center">Slider Listesi</h2>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Slider&nbsp; <a asp-action="Add" class="btn btn-success"><i class="fas fa-plus"></i> Slider Ekle</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myDataTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Kısa İçerik</th>
+                            <th>İçerik</th>
+                            <th>Silindi Mi?</th>
+                            <th>Aktif Mi?</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Oluşturan</th>
+                            <th>Düzenlenme Tarihi</th>
+                            <th>Düzenleyen</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tfoot class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Kısa İçerik</th>
+                            <th>İçerik</th>
+                            <th>Silindi Mi?</th>
+                            <th>Aktif Mi?</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Oluşturan</th>
+                            <th>Düzenlenme Tarihi</th>
+                            <th>Düzenleyen</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.HomePageSliders)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title</td>
+                                <td>@item.ShortDescription</td>
+                                <td>İçerik kısmını görmek için detaylara gidiniz.</td>
+                                <td>@item.IsDeleted</td>
+                                <td>@item.IsActive</td>
+                                <td>@item.CreatedTime.ToShortDateString()</td>
+                                <td>@item.CreatedByName</td>
+                                <td>@item.ModifiedTime.ToShortDateString()</td>
+                                <td>@item.ModifiedByName</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Slider" asp-action="Edit" asp-route-id="@item.Id" title="Düzenle"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-secondary" asp-area="Admin" asp-controller="Slider" asp-action="Details" asp-route-id="@item.Id" title="Detayları İncele"><i class="fas fa-info-circle"></i></a>
+                                        <a class="btn btn-danger" asp-area="Admin" asp-controller="Slider" asp-action="HardDelete" asp-route-id="@item.Id" title="Veritabanından Sil"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

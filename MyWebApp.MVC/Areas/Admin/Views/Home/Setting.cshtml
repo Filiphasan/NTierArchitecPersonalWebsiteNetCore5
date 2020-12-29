@@ -1,0 +1,65 @@
+﻿@model MyWebApp.Entities.Dtos.AdminDtos.AdminDto
+
+@{
+    ViewBag.Title = "Admin Bilgisi";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item">Ayarlar</li>
+</ol>
+<hr />
+<h2 class="text-center">Admin Bilgisi</h2>
+<div class="card">
+    <div class="card-header"><i class="fas fa-table"></i> Admin</div>
+    <div class="card-body">
+        <table class="table table-responsive-lg table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>E-Mail</th>
+                    <th>PasswordHash</th>
+                    <th>Güvenlik Sorusu</th>
+                    <th>Güvenlik Sorusu Cevabı</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>Oluşturan</th>
+                    <th>Düzenlenme Tarihi</th>
+                    <th>Düzenleyen</th>
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tfoot class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>E-Mail</th>
+                    <th>PasswordHash</th>
+                    <th>Güvenlik Sorusu</th>
+                    <th>Güvenlik Sorusu Cevabı</th>
+                    <th>Oluşturulma Tarihi</th>
+                    <th>Oluşturan</th>
+                    <th>Düzenlenme Tarihi</th>
+                    <th>Düzenleyen</th>
+                    <th>İşlem</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <td>@Model.Admin.Id</td>
+                    <td>@Model.Admin.Email</td>
+                    <td>@Model.Admin.PasswordHash</td>
+                    <td>@Model.Admin.SecurituQuestion</td>
+                    <td>@Model.Admin.SQAnswerHash</td>
+                    <td>@Model.Admin.CreatedTime.ToShortDateString()</td>
+                    <td>@Model.Admin.CreatedByName</td>
+                    <td>@Model.Admin.ModifiedTime.ToShortDateString()</td>
+                    <td>@Model.Admin.ModifiedByName</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="btn btn-primary" asp-area="Admin" asp-controller="Home" asp-action="EditAdmin" asp-route-id="@Model.Admin.Id" title="Düzenle"><i class="fas fa-edit"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

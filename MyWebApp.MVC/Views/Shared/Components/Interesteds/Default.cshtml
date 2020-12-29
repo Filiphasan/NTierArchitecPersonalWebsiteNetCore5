@@ -1,0 +1,5 @@
+﻿@model MyWebApp.Entities.Dtos.InterestedDtos.InterestedListDto
+@foreach (var item in Model.Interesteds)
+{
+    <p><i class="fas fa-check-circle"></i> @item.Text</p>
+}

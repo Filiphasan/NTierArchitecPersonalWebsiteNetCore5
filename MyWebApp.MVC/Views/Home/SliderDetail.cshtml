@@ -1,0 +1,12 @@
+﻿@model MyWebApp.Entities.Dtos.HomePageSliderDtos.HomePageSliderDto
+@{ 
+    ViewBag.Title = $"{Model.HomePageSlider.Title}";
+}
+<section id="more" class="px-lg-5">
+    <div class="cerceve text-center">
+        <h1 class="display-4 font-weight-bold pt-5">@Model.HomePageSlider.Title.ToUpper()</h1>
+        <div class="aciklama">
+            @Html.Raw(Model.HomePageSlider.LongDescription)
+        </div>
+    </div>
+</section>

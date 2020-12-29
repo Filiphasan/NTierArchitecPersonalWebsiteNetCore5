@@ -1,0 +1,47 @@
+﻿@model MyWebApp.Entities.Dtos.SocialMediaAccountDtos.SocialMediaAccountDto
+
+@{
+    ViewBag.Title = "Sosyal Medya Hesabı Silme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Account">Sosyal Medya Hesap Listesi</a></li>
+    <li class="breadcrumb-item">Sosyal Medya Hesabı Silme</li>
+</ol>
+<hr />
+<h2 class="text-center">Sosyal Medya Hesabı Silme</h2>
+<hr />
+<h3>Seçili sosyal medya hesabını veritabanından silmek istiyor musunuz?</h3>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Hesap FontAwesome</dt>
+        <dd style="font-size:40px">@Html.Raw(Model.SocialMediaAccount.AccountFA)</dd>
+
+        <dt>Hesap Linki</dt>
+        <dd><a href="@Model.SocialMediaAccount.AccountUrl">@Model.SocialMediaAccount.AccountUrl</a></dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.SocialMediaAccount.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.SocialMediaAccount.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.SocialMediaAccount.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.SocialMediaAccount.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.SocialMediaAccount.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.SocialMediaAccount.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="DoHardDelete" asp-controller="Account" asp-area="Admin" asp-route-id="@Model.SocialMediaAccount.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Bilgileri Sil</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Category" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

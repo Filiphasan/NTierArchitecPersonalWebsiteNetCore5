@@ -1,0 +1,55 @@
+﻿@model MyWebApp.Entities.Dtos.ArticleDtos.ArticleDto
+@{ 
+    ViewBag.Title = Model.Article.Title;
+}
+    <div class="cerceve">
+        <section id="blogDetay" class="mt-5 py-5 px-md-5">
+            <h1 class="text-center pb-5">@Model.Article.Title</h1>
+            <img src="@Model.Article.Thumbnail" class="img-fluid mb-3 img-thumbnail" />
+            <div class="row">
+                <div class="col-5">
+                    <h4> @Html.Raw(Model.Article.Category.CategoryFA) @Model.Article.Category.Name - <i class="fas fa-book-open"></i> @Model.Article.ViewsCount</h4>
+                </div>
+                <div class="col-7 text-right">
+                    <h4>@Model.Article.ModifiedByName - @Model.Article.ModifiedTime.ToShortDateString()</h4>
+                </div>
+            </div>
+            <hr>
+            <div class="py-5 px-1">
+                @Html.Raw(Model.Article.Content)
+            </div>
+            <hr>
+            <div class="col-lg-4 yorumYap">
+                <form asp-action="AddComment" asp-controller="Home" method="post">
+                    <input hidden name="ArticleId" value="@Model.Article.Id" />
+                    <div class="form-group py-2">
+                        <input type="text" maxlength="25" class="form-control" name="FirstName" placeholder="Adınız" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <input type="text" maxlength="20" class="form-control" name="LastName" placeholder="Soyadınız" required>
+                    </div>
+                    <div class="form-group py-2">
+                        <textarea name="Text" id="" maxlength="512" class="form-control" cols="30" rows="4" placeholder="Yorum"
+                                  required></textarea>
+                    </div>
+                    <div class="form-group py-2">
+                        <button class="btn w-100" role="button"><i class="fas fa-comment-dots"></i> Yorum Yap</button>
+                    </div>
+                </form>
+            </div>
+            <hr>
+            @if (Model.Article.Comments.Count > 0)
+            {
+                foreach (var item in Model.Article.Comments)
+                {
+                    @if (item.IsActive == true)
+                    {
+                        <div class="col-lg-8" id="yorumlar">
+                            <h4>@item.FirstName @item.LastName</h4>
+                            <p>@item.Text</p>
+                        </div><hr>
+                    }
+                }
+            }
+        </section>
+    </div>

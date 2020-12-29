@@ -1,0 +1,51 @@
+﻿@model MyWebApp.Entities.Dtos.ExperienceDtos.ExperienceUpdateDto
+
+@{
+    ViewBag.Title = "Deneyim Bilgileri Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Experience">Deneyim Listesi</a></li>
+    <li class="breadcrumb-item">Deneyim Bilgileri Düzenleme</li>
+</ol>
+<hr />
+<h2 class="text-center">Deneyim Bilgileri Düzenleme</h2>
+<form method="post" asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Workplace"></label>
+        <input asp-for="Workplace" class="form-control" />
+        <span asp-validation-for="Workplace" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsActive" class="form-check-label"></label>
+        <input type="checkbox" class="form-check" asp-for="IsActive" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsDeleted" class="form-check-label"></label>
+        <input type="checkbox" class="form-check" asp-for="IsDeleted" />
+        <span asp-validation-for="IsDeleted" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="offset-lg-1">
+            <button class="btn btn-success" type="submit"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-danger"><i class="fas fa-undo"></i> Listeye Dön</a>

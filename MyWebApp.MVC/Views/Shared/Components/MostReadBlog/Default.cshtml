@@ -1,0 +1,12 @@
+﻿@model MyWebApp.Entities.Dtos.ArticleDtos.ArticleListDto
+@foreach (var item in Model.Articles)
+{
+    <div class="col-6">
+        <div class="carousel slide" data-ride="carousel" id="slider1">
+            <img src="@item.Thumbnail" class="img-fluid" />
+        </div>
+    </div>
+    <div class="col-6 align-self-center">
+        <a asp-controller="Home" asp-route-name="@SeoHelper.ToSeoUrl(item.Title)" asp-action="BlogDetail" asp-route-id="@item.Id" style="color:#1a1a2e"><h5>@item.Title</h5></a>
+    </div>
+}

@@ -1,0 +1,14 @@
+﻿@model MyWebApp.Entities.Dtos.EducationDtos.EducationListDto
+@foreach (var item in Model.Educations)
+{
+    <div class="egitim col-12 text-left px-3">
+        <h4 class="font-weight-bold pl-2">@item.Title</h4>
+        <h5><i class="fas fa-school"></i> @item.School</h5>
+        <h5><i class="fas fa-calendar-alt"></i> @item.Duration</h5>
+        <h5><i class="fas fa-user-graduate"></i> @item.Avarage</h5>
+        <p>
+            @item.Description
+        </p>
+    </div>
+    <hr>
+}

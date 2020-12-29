@@ -1,0 +1,114 @@
+﻿@model MyWebApp.Entities.Dtos.ArticleDtos.ArticleListDto
+
+@{
+    ViewBag.Title = "Makale Listesi";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item">Makale Listesi</li>
+</ol>
+<hr />
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <h2 class="text-center">Makale Listesi</h2>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table mr-1"></i>
+            Makaleler&nbsp; <a asp-action="Add" class="btn btn-success"><i class="fas fa-plus"></i> Makale Ekle</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="myDataTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Makale Resmi</th>
+                            <th>Kısa İçerik</th>
+                            <th>İçerik</th>
+                            <th>Okunma Sayısı</th>
+                            <th>Yorum Sayısı</th>
+                            <th>Kategori</th>
+                            <th>Seo Etiketleri</th>
+                            <th>Seo Açıklama</th>
+                            <th>Silindi Mi?</th>
+                            <th>Aktif Mi?</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Oluşturan</th>
+                            <th>Düzenlenme Tarihi</th>
+                            <th>Düzenleyen</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tfoot class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Başlık</th>
+                            <th>Makale Resmi</th>
+                            <th>Kısa İçerik</th>
+                            <th>İçerik</th>
+                            <th>Okunma Sayısı</th>
+                            <th>Yorum Sayısı</th>
+                            <th>Kategori</th>
+                            <th>Seo Etiketleri</th>
+                            <th>Seo Açıklama</th>
+                            <th>Silindi Mi?</th>
+                            <th>Aktif Mi?</th>
+                            <th>Oluşturulma Tarihi</th>
+                            <th>Oluşturan</th>
+                            <th>Düzenlenme Tarihi</th>
+                            <th>Düzenleyen</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.Articles)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title</td>
+                                <td>
+                                    <img class="img-fluid img-thumbnail" style="max-width:200px" src="@item.Thumbnail" />
+                                </td>
+                                <td>@item.ShortContent.Substring(0,100)</td>
+                                <td>
+
+                                    İçerik kısmını görmek için <a asp-action="Details" asp-route-id="@item.Id" title="Detayları incele">detaya</a> gidiniz.
+
+                                </td>
+                                <td>@item.ViewsCount</td>
+                                <td>@item.Comments.Count()</td>
+                                <td>@item.Category.Name</td>
+                                <td>@item.SeoTags</td>
+                                <td>
+                                    @if (item.SeoDescription.Length >=50)
+                                    {
+                                        @item.SeoDescription.Substring(0, 50)
+                                    }
+                                    else
+                                    {
+                                        @item.SeoDescription
+                                    }
+                                </td>
+                                <td>@item.IsDeleted</td>
+                                <td>@item.IsActive</td>
+                                <td>@item.CreatedTime.ToShortDateString()</td>
+                                <td>@item.CreatedByName</td>
+                                <td>@item.ModifiedTime.ToShortDateString()</td>
+                                <td>@item.ModifiedByName</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Article" asp-action="Edit" asp-route-id="@item.Id" title="Düzenle"><i class="fas fa-edit"></i></a>
+                                        <a class="btn btn-secondary" asp-area="Admin" asp-controller="Article" asp-action="Details" asp-route-id="@item.Id" title="Detayları Gör"><i class="fas fa-info-circle"></i></a>
+                                        <a class="btn btn-danger" asp-area="Admin" asp-controller="Article" asp-action="HardDelete" asp-route-id="@item.Id" title="Veritabanından Sil"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}

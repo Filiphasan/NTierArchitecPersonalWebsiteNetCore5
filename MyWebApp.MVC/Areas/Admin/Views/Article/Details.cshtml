@@ -1,0 +1,66 @@
+﻿@model MyWebApp.Entities.Dtos.ArticleDtos.ArticleDto
+
+@{
+    ViewBag.Title = "Makale Detayları";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Article">Makale Listesi</a></li>
+    <li class="breadcrumb-item">Makale Detayları</li>
+</ol>
+<hr />
+<h2 class="text-center">Makale Detayları</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Makale Başlığı</dt>
+        <dd>@Model.Article.Title</dd>
+
+        <dt>Makale Resmi</dt>
+        <dd><img src="@Model.Article.Thumbnail" alt="@Model.Article.Title" class="img-fluid img-thumbnail w-50" />
+        </dd>
+
+        <dt>Kısa İçerik</dt>
+        <dd>@Model.Article.ShortContent</dd>
+
+        <dt>Okunma Sayısı</dt>
+        <dd>@Model.Article.ViewsCount</dd>
+
+        <dt>Yorum Sayısı</dt>
+        <dd>@Model.Article.Comments.Count</dd>
+
+        <dt>Makale Kategorisi</dt>
+        <dd>@Html.Raw(Model.Article.Category.CategoryFA) @Model.Article.Category.Name</dd>
+
+        <dt>Seo Etiketleri</dt>
+        <dd>@Model.Article.SeoTags</dd>
+
+        <dt>Seo Açıklaması</dt>
+        <dd>@Model.Article.SeoDescription</dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.Article.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.Article.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.Article.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.Article.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.Article.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.Article.ModifiedByName</dd>
+
+        <dt>Makale İçeriği</dt>
+        <dd class="border">@Html.Raw(Model.Article.Content)</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="Article" asp-area="Admin" asp-route-id="@Model.Article.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Article" asp-area="Admin"><i class="fas fa-info-circle"></i> Listeye Dön</a>
+</div>

@@ -1,0 +1,50 @@
+﻿@model MyWebApp.Entities.Dtos.ExperienceDtos.ExperienceDto
+
+@{
+    ViewBag.Title = "Deneyim Detayları";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Experience">Deneyim Listesi</a></li>
+    <li class="breadcrumb-item">Deneyim Detayları</li>
+</ol>
+<hr />
+<h2 class="text-center">Deneyim Detayları</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Deneyim</dt>
+        <dd>@Model.Experience.Title</dd>
+
+        <dt>Çalışma Yeri</dt>
+        <dd>@Model.Experience.Workplace</dd>
+
+        <dt>Deneyim Süreci</dt>
+        <dd>@Model.Experience.Duration</dd>
+
+        <dt>Açıklama</dt>
+        <dd>@Model.Experience.Description</dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.Experience.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.Experience.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.Experience.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.Experience.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.Experience.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.Experience.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="Experience" asp-area="Admin" asp-route-id="@Model.Experience.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Experience" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

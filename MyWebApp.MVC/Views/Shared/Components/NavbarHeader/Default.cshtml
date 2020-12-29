@@ -1,0 +1,28 @@
+﻿@model MyWebApp.Entities.Dtos.SiteIdentityDtos.SiteIdentityDto
+<header>
+    <div class="cerceve">
+        <!--NAVBAR-->
+        <nav class="navbar navbar-expand-lg navbar-dark py-3">
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">@Html.Raw(Model.SiteIdentity.LogoFA) @Model.SiteIdentity.LogoText.ToUpper()</a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ml-auto pr-5">
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link px-3 @ViewBag.Home"><i class="fas fa-house-user"></i> Anasayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="About" class="nav-link px-3 @ViewBag.About"><i class="fas fa-comment-dots"></i> Hakkımda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Blog" class="nav-link px-3 @ViewBag.Blog"><i class="far fa-images"></i> Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Contact" class="nav-link px-3 @ViewBag.Contact"><i class="fas fa-phone-square-alt"></i> İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

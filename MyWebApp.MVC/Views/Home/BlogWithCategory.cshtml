@@ -1,0 +1,52 @@
+﻿@model PagedList.Core.IPagedList<MyWebApp.Entities.Concrete.Article>
+@{
+    ViewBag.Title = "Blog";
+}
+<section id="blog" class="mt-5">
+    <div class="cerceve">
+        <div class="row">
+            <!--LEFT-->
+            <div class="col-lg-3 left">
+                
+                <nav class="navbar navbar-expand-lg py-lg-3 mb-5">
+                    <button class="navbar-toggler mx-auto text-light" data-toggle="collapse"
+                            data-target="#nvbCollapse">
+                        <i class="fas fa-list-alt"></i> Kategoriler
+                    </button>
+                    <div class="collapse navbar-collapse" id="nvbCollapse">
+                        <ul class="nav nav-tabs">
+                            @await Component.InvokeAsync("Categories")
+                        </ul>
+                    </div>
+                </nav>
+                <div class="col-12 mostRead py-4">
+                    <h3 class="text-center">En Çok Okunanlar</h3>
+                    <hr>
+                    <div class="row">
+                        @await Component.InvokeAsync("MostReadBlog")
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <!--RİGHT-->
+            <div class="col-lg-8 right p-md-5 ml-auto">
+                @foreach (var item in Model)
+                {
+                    <div class="col-12 pt-3 pb-3">
+                        <div class="carousel slide" data-ride="carousel" id="slider4">
+                            <img src="@item.Thumbnail" class="img-fluid w-100 mb-2" alt="">
+                        </div>
+                        <h4 class="text-center">@item.Title</h4>
+                        <p class="text-muted">
+                            @item.ShortContent
+                        </p>
+                        <div class="text-right btnDevam"><a asp-controller="Home" asp-action="BlogDetail" asp-route-id="@item.Id" class="btn w-lg-25 ">Devamını Oku</a></div>
+                    </div>
+                    <hr>
+                }
+                <pager list="Model" asp-controller="Home" asp-action="Blog" />
+
+            </div>
+        </div>
+    </div>
+</section>

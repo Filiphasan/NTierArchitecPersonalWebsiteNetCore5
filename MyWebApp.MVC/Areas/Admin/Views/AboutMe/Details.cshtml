@@ -1,0 +1,52 @@
+﻿@model MyWebApp.Entities.Dtos.AboutMeDtos.AboutMeDto
+
+@{
+    ViewBag.Title = "Hakkımda Bilgisi Detayları";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="AboutMe">Hakkımda Bilgisi</a></li>
+    <li class="breadcrumb-item">Hakkımda Bilgisi Detayları</li>
+</ol>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Ad</dt>
+        <dd>@Model.AboutMe.FirstName</dd>
+
+        <dt>Soyad</dt>
+        <dd>@Model.AboutMe.LastName</dd>
+
+        <dt>Fotoğraf</dt>
+        <dd><img src="@Model.AboutMe.ImagePath" alt="Hasan Erdal" class="w-50 img-fluid" /></dd>
+
+        <dt>Meslek Fontawesome</dt>
+        <dd style="font-size:50px">@Html.Raw(Model.AboutMe.MyJobFA)</dd>
+
+        <dt>Meslek</dt>
+        <dd>@Model.AboutMe.MyJob</dd>
+
+        <dt>Doğum Tarihi</dt>
+        <dd>@Model.AboutMe.BirthDate.ToShortDateString()</dd>
+
+        <dt>Özgeçmiş</dt>
+        <dd><a href="@Model.AboutMe.MyCVPath" download="" class="btn btn-outline-primary"><i class="fas fa-download"></i> İndir</a></dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.AboutMe.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.AboutMe.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.AboutMe.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.AboutMe.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="AboutMe" asp-area="Admin" asp-route-id="@Model.AboutMe.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="AboutMe" asp-area="Admin"><i class="fas fa-info-circle"></i> Listeye Dön</a>
+</div>

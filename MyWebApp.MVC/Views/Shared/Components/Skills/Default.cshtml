@@ -1,0 +1,16 @@
+﻿@model MyWebApp.Entities.Dtos.SkillDtos.SkillListDto
+<div class="col-lg-6 mx-auto pt-5 pb-4 text-center" id="skills">
+    <h2 class="font-weight-bold"><i class="fas fa-chart-pie"></i> YETENEKLERİM</h2>
+    @foreach (var item in Model.Skills)
+    {
+        <div class="skill py-3">
+            <h4 class="py-2 text-left">@item.Title</h4>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                     aria-valuenow="@item.PercentageValue" aria-valuemin="@item.PercentageValue" aria-valuemax="100" style="width:@item.PercentageValue%">
+                    @item.PercentageValue%
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,9 @@
+﻿@model MyWebApp.Entities.Dtos.CategoryDtos.CategoryListDto
+@foreach (var item in Model.Categories)
+{
+    <li class="nav-item w-100 py-2">
+        <a asp-controller="Home" asp-action="BlogWithCategory" asp-route-category="@SeoHelper.ToSeoUrl(item.Name)" asp-route-id="@item.Id" class="nav-link">
+            @Html.Raw(item.CategoryFA) @item.Name
+        </a>
+    </li>
+}

@@ -1,0 +1,50 @@
+﻿@model MyWebApp.Entities.Dtos.CommentDtos.CommentDto
+
+@{
+    ViewBag.Title = "Yorum Listesi";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Comment">Yorum Listesi</a></li>
+    <li class="breadcrumb-item">Yorum Silme</li>
+</ol>
+<hr />
+<h2 class="text-center">Yorum Silme</h2>
+<div>
+    <dl class="dl-horizontal">
+        <dt>Ad</dt>
+        <dd>@Model.Comment.FirstName</dd>
+
+        <dt>Soyad</dt>
+        <dd>@Model.Comment.LastName</dd>
+
+        <dt>Yorum</dt>
+        <dd>@Model.Comment.Text</dd>
+
+        <dt>Yorumun Makalesi</dt>
+        <dd>@Model.Comment.Article.Title</dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.Comment.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.Comment.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.Comment.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.Comment.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.Comment.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.Comment.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="DoHardDelete" asp-controller="Comment" asp-area="Admin" asp-route-id="@Model.Comment.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Bilgileri Sil</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Comment" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

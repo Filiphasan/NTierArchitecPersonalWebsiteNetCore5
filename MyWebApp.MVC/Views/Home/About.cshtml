@@ -1,0 +1,60 @@
+﻿@model MyWebApp.Entities.Dtos.AboutMeDtos.AboutMeDto
+@{ 
+    ViewBag.Title = "Hakkımda";
+}
+<section id="about">
+    <div class="cerceve">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 class="display-4 font-weight-bold">HAKKIMDA</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-5 p-5">
+                <img src="@Model.AboutMe.ImagePath" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 aboutInfo ml-auto py-5 ">
+                <h4 class="p-0 m-0">Merhaba Ben</h4>
+                <h1 class="font-weight-bold isim">@Model.AboutMe.FirstName @Model.AboutMe.LastName</h1>
+                <h1 class="pt-2 pb-4">@Html.Raw(Model.AboutMe.MyJobFA) @Model.AboutMe.MyJob</h1>
+                <h4 class="py-2"><i class="fas fa-birthday-cake pr-2"></i> @Model.AboutMe.BirthDate.ToShortDateString()</h4>
+                <h4 class="py-2"><i class="fas fa-phone-alt pr-2"></i> @ViewBag.ContactInfo.PhoneNumber</h4>
+                <h4 class="py-2">
+                    <i class="far fa-envelope pr-2"></i> <a href="mailto:@ViewBag.ContactInfo.Email">@ViewBag.ContactInfo.Email</a>
+                </h4>
+                <h4 class="py-2"><i class="fas fa-home pr-2"></i>@ViewBag.ContactInfo.ShortAdress</h4>
+                <a href="@Model.AboutMe.MyCVPath" download class="btn mt-2 downloadCV">
+                    <h4><i class="far fa-id-card"></i> Özgeçmişime Göz Atın</h4>
+                </a>
+                <ul class="list-inline pt-5">
+                    @await Component.InvokeAsync("FooterAccounts")
+                </ul>
+            </div>
+        </div>
+        <hr>
+        @await Component.InvokeAsync("Summary")
+        <hr>
+        <div class="row">
+            @await Component.InvokeAsync("Skills")
+        </div>
+        <hr>
+        <div class="row text-center py-5">
+            <div class="col-lg-6" id="deneyimler">
+                <h2 class="pb-4"><i class="fas fa-clipboard-list"></i> DENEYİMLER</h2>
+                @await Component.InvokeAsync("Experiences")
+            </div>
+            <div class="col-lg-6" id="egitimler">
+                <h2 class="pb-4"><i class="fas fa-university"></i> EĞİTİM</h2>
+                @await Component.InvokeAsync("Educations")
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-6 mx-auto interested pb-5">
+                <h2 class="text-center pt-4 pb-5"><i class="fas fa-running"></i> İLGİ ALANLARIM</h2>
+                @await Component.InvokeAsync("Interesteds")
+            </div>
+        </div>
+    </div>
+</section>

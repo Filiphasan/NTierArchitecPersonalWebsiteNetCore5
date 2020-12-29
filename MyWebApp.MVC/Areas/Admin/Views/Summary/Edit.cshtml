@@ -1,0 +1,29 @@
+﻿@model MyWebApp.Entities.Dtos.SummaryDtos.SummaryUpdateDto
+
+@{
+    ViewBag.Title = "Özet Bilgileri Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Summary">Özet Bilgisi</a></li>
+    <li class="breadcrumb-item">Özet Bilgisi Düzenleme</li>
+</ol>
+<hr />
+<h2 class="text-center">Özet Bilgisi Düzenleme</h2>
+<form method="post" asp-action="Edit">
+    <input hidden asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" rows="5" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <input hidden asp-for="IsActive" type="checkbox" />
+    <input hidden asp-for="IsDeleted" type="checkbox" />
+    <div class="form-group">
+        <div class="offset-lg-1">
+            <button class="btn btn-success" type="submit"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-warning"><i class="fas fa-undo"></i> Listeye Dön</a>

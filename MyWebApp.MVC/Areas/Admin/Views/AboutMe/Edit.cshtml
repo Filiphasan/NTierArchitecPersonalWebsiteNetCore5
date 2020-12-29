@@ -1,0 +1,67 @@
+﻿@model MyWebApp.Entities.Dtos.AboutMeDtos.AboutMeUpdateDto
+
+@{
+    ViewBag.Title = "Hakkımda Bilgisi Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="AboutMe">Hakkımda Bilgisi</a></li>
+    <li class="breadcrumb-item">Hakkımda Bilgisi Düzenleme</li>
+</ol>
+<hr />
+<h2 class="text-center">Hakkımda Bilgisi Düzenleme</h2>
+<form enctype="multipart/form-data" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="ImagePath" />
+    <input type="hidden" asp-for="MyCVPath" />
+    <div class="form-group">
+        <label asp-for="FirstName"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <span class="text-danger" asp-validation-for="FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName"></label>
+        <input class="form-control" asp-for="LastName" />
+        <span class="text-danger" asp-validation-for="LastName"></span>
+    </div>
+    <div class="form-group">
+        <label>Mevcut Fotoğraf</label><br />
+        <img src="@Model.ImagePath" alt="@Model.FirstName @Model.LastName" class="img-fluid  w-50" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ImagePath"></label>(Lütfen 1:1 formatında fotoğraf yükleyiniz!)
+        <input type="file" name="fileImage" accept="jpg png jpeg" class="form-control-file" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Meslek FontAwesome @Html.Raw(Model.MyJobFA)</label>
+        <input asp-for="MyJobFA" class="form-control" />
+        <span asp-validation-for="MyJobFA" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MyJob"></label>
+        <input asp-for="MyJob" class="form-control" />
+        <span asp-validation-for="MyJob"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="BirthDate"></label>
+        <input type="date" asp-for="BirthDate" class="form-control" />
+        <span asp-validation-for="BirthDate" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MyCVPath"></label>
+        <input name="fileCV" class="form-control-file" type="file" />
+        <span asp-validation-for="MyCVPath" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input hidden type="checkbox" asp-for="IsDeleted" />
+        <input hidden type="checkbox" asp-for="IsActive" />
+    </div>
+    <div class="form-group">
+        <div class="offset-lg-1 col-lg-11">
+            <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-warning"><i class="fas fa-undo"></i> Listeye Dön</a>

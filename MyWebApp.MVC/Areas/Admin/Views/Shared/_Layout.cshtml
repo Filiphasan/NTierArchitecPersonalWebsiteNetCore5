@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewBag.Title | Admin | Blog</title>
+    <link rel="icon" href="~/AdminDoc/img/admin-ico.ico" type="image/x-icon" />
+    @await Html.PartialAsync("_LayoutCssPartial");
+    @await RenderSectionAsync("Styles", false);
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" asp-area="Admin" asp-controller="Home" asp-action="Index">Yönetim Paneli</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" asp-controller="Home" asp-area="Admin" asp-action="Setting">Ayarlar</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Home" asp-action="LogOut">Çıkış Yap</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">Menü</div>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Home" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-house-user"></i></div>
+                            Admin
+                        </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="SiteIdentity" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-card"></i></div>
+                            Site Kimlik
+                        </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Skill" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
+                            Yeteneklerim
+                        </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Slider" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-images"></i></div>
+                            Slider
+                        </a>
+                        <a class="nav-link" asp-area="Admin" asp-controller="Messages" asp-action="Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comments"></i></div>
+                            Mesajlar
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAbout" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-comment-alt"></i></div>
+                            Hakkımda
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseAbout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="Admin" asp-controller="AboutMe" asp-action="Index"><i class="fas fa-comment-alt"></i>&nbsp; Hakkımda</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Education" asp-action="Index"><i class="fas fa-user-graduate"></i>&nbsp; Eğitim</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Experience" asp-action="Index"><i class="fas fa-globe"></i>&nbsp; Deneyim</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Summary" asp-action="Index"><i class="fas fa-align-center"></i>&nbsp; Özet</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Interested" asp-action="Index"><i class="fas fa-running"></i>&nbsp; Hobiler</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseArticle" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-photo-video"></i></div>
+                            Makale
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseArticle" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="Admin" asp-controller="Article" asp-action="Index"><i class="fas fa-photo-video"></i>&nbsp; Makaleler</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Category" asp-action="Index"><i class="fas fa-th-list"></i>&nbsp; Kategoriler</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Comment" asp-action="Index"><i class="fas fa-comment-dots"></i>&nbsp; Yorumlar</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseContact" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-phone-square"></i></div>
+                            İletişim
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseContact" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="Admin" asp-controller="Account" asp-action="Index"><i class="fab fa-linkedin-in"></i>&nbsp; Sosyal Medya</a>
+                                <a class="nav-link" asp-area="Admin" asp-controller="Contact" asp-action="Index"><i class="fas fa-phone-square"></i>&nbsp; İletişim</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer text-center">
+                    HASAN ERDAL
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <h1 class="mt-2">Yönetim Paneli</h1>
+                    <hr />
+                    @RenderBody()
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; @DateTime.Now.Year</div>
+                        
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @await Html.PartialAsync("_LayoutJsPartial");
+    @await RenderSectionAsync("Scripts", false);
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿@model MyWebApp.Entities.Dtos.HomePageSliderDtos.HomePageSliderUpdateDto
+
+@{
+    ViewBag.Title = "Slider Bilgileri Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Slider">Slider Listesi</a></li>
+    <li class="breadcrumb-item">Slider Bilgileri Düzenleme</li>
+</ol>
+<hr />
+<form method="post" asp-action="Edit">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input class="form-control" asp-for="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription"></label>
+        <input class="form-control" asp-for="ShortDescription" />
+        <span asp-validation-for="ShortDescription" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsActive" class="form-check-label"></label>
+        <input type="checkbox" asp-for="IsActive" />
+        <span asp-validation-for="IsActive" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsDeleted"></label>
+        <input asp-for="IsDeleted" type="checkbox" />
+        <span asp-validation-for="IsDeleted"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LongDescription"></label>
+        <textarea asp-for="LongDescription" class="form-control" style="min-height:500px;" rows="10" id="editor">
+        </textarea>
+        <span asp-validation-for="LongDescription"></span>
+    </div>
+    <div class="form-group">
+        <div class="offset-lg-1 col-lg-10">
+            <button class="btn btn-success" type="submit"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-danger"><i class="fas fa-undo"></i> Listeye Dön</a>
+
+@section Scripts{
+    <script>
+
+    </script>
+}

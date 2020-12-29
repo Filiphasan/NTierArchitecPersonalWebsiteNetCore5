@@ -1,0 +1,377 @@
+@media screen and (max-width:992px) {
+    .cerceve {
+        width: 100% !important;
+    }
+
+    #about .aboutInfo {
+        border-left: none !important;
+    }
+
+    #contact .first-input {
+        margin-bottom: 15px;
+    }
+
+    #blog .right {
+        margin-top: 40px;
+    }
+
+    #blog .left {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+body {
+    background: url(../img/bg-design-2.png) no-repeat center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    color: #eeeeee !important;
+}
+
+.cerceve {
+    width: 90%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.top-colored, .col-2 {
+    height: 15px;
+}
+
+.renk1 {
+    background-color: #00bcd4;
+}
+
+.renk2 {
+    background-color: #ff5722;
+}
+
+.renk3 {
+    background-color: #b2ebf2;
+}
+
+.renk4 {
+    background-color: #dd2c00;
+}
+
+.renk5 {
+    background-color: #006a71;
+}
+
+.renk6 {
+    background-color: #d3de32;
+}
+
+header {
+    background-color: #1a1a2e;
+    border-bottom: #4f8a8b solid 8px;
+}
+
+.navbar-brand {
+    font-size: 24px;
+}
+
+.nav-item {
+    font-size: 18px;
+}
+/*HOME*/
+#home {
+    margin-top: 50px;
+}
+
+.slider-bg {
+    font-family: 'Pacifico', cursive;
+    background-color: #76ead7;
+    border: #222831 solid 10px;
+    border-radius: 15px;
+    color: #222831;
+}
+
+    .slider-bg p {
+        font-size: 20px;
+        font-family: 'Pacifico', cursive;
+        line-height: 30px;
+    }
+
+    .slider-bg a {
+        border: #222831 solid 3px;
+        font-size: 24px;
+    }
+
+        .slider-bg a:hover {
+            background-color: #222831;
+            color: #76ead7 !important;
+        }
+
+.carousel-indicators li {
+    background-color: #1a1a2e !important;
+}
+/*FOOTER*/
+footer {
+    margin-top: 200px;
+    border-top: #4f8a8b solid 8px;
+    background-color: #1a1a2e;
+}
+
+    footer .adress {
+        color: #76ead7;
+    }
+
+    footer a {
+        color: #76ead7;
+    }
+
+        footer a:hover {
+            color: #dd2c00;
+        }
+/*ABOUT*/
+#about {
+    margin-top: 40px;
+}
+
+    #about .cerceve {
+        color: #1a1a2e;
+        margin-top: 40px;
+        background-color: #76ead7;
+        border: #222831 solid 10px;
+        border-radius: 15px;
+    }
+
+        #about .cerceve img {
+            border-radius: 15px;
+        }
+
+    #about .aboutInfo {
+        border-left: #222831 dashed 8px;
+        border-radius: 10px;
+    }
+
+        #about .aboutInfo h1 {
+            font-size: 55px;
+        }
+
+        #about .aboutInfo .isim {
+            font-size: 55px;
+            text-decoration-line: underline;
+        }
+
+        #about .aboutInfo a {
+            color: #1a1a2e !important;
+            text-decoration: none;
+        }
+
+        #about .aboutInfo .downloadCV {
+            border: #1a1a2e solid 3px;
+            border-radius: 10px;
+        }
+
+            #about .aboutInfo .downloadCV:hover {
+                background-color: #1a1a2e;
+                color: #76ead7 !important;
+            }
+
+        #about .aboutInfo ul li a:hover {
+            color: #dd2c00 !important;
+        }
+
+    #about #skills .progress {
+        background-color: #c4fb6d !important;
+    }
+
+        #about #skills .progress .progress-bar {
+            background-color: #1a1a2e !important;
+        }
+
+#ozet p {
+    font-size: 20px;
+}
+/*DENEYİMLER*/
+#deneyimler {
+    border-right: solid #1a1a2e 5px;
+}
+
+    #deneyimler .deneyim {
+        border-left: #1a1a2e dashed 5px;
+    }
+/*EĞİTİM*/
+#egitimler {
+    border-left: solid #1a1a2e 5px;
+}
+
+    #egitimler .egitim {
+        border-left: #1a1a2e dashed 5px;
+    }
+/*İLGİ ALANLARI*/
+.interested p {
+    font-size: 22px;
+}
+/*MAP*/
+.map {
+    border-top: #1a1a2e solid 8px;
+    margin-bottom: 40px;
+}
+/*CONTACT*/
+.contact-bg {
+    background-color: #76ead7;
+    border-radius: 10px;
+}
+
+    .contact-bg h1 {
+        color: #1a1a2e;
+    }
+
+#contact input {
+    border: #1a1a2e solid 3px;
+    color: #1a1a2e !important;
+}
+
+#contact textarea {
+    border: #1a1a2e solid 3px;
+    color: #1a1a2e !important;
+}
+
+#contact .btnContact {
+    font-size: 20px;
+    border: #1a1a2e solid 3px;
+    border-radius: 5px;
+}
+
+    #contact .btnContact:hover {
+        background-color: #1a1a2e;
+        color: #76ead7;
+    }
+/*BLOG*/
+#blog .search {
+    color: #1a1a2e !important;
+    background-color: #76ead7;
+    border: #1a1a2e solid 5px;
+    border-radius: 10px;
+}
+
+    #blog .search button {
+        border: solid 3px #1a1a2e;
+        border-radius: 5px;
+    }
+
+        #blog .search button:hover {
+            color: #76ead7 !important;
+            background-color: #1a1a2e;
+        }
+
+#blog .navbar {
+    background-color: #76ead7;
+    color: #1a1a2e !important;
+    border: #1a1a2e solid 5px;
+    border-radius: 10px;
+}
+
+#blog nav ul {
+    border-bottom: none !important;
+}
+
+#blog .left button {
+    color: #1a1a2e !important;
+}
+
+#blog .left li a {
+    color: #1a1a2e;
+    font-size: 20px;
+    border-radius: 5px;
+    border: #1a1a2e;
+}
+
+    #blog .left li a:hover {
+        color: #76ead7;
+        background-color: #1a1a2e;
+    }
+
+#blog .left .mostRead {
+    color: #1a1a2e;
+    background-color: #76ead7;
+    border: #1a1a2e solid 5px;
+    border-radius: 10px;
+}
+
+    #blog .left .mostRead img {
+        border-radius: 6px;
+    }
+
+#blog .right {
+    background-color: #76ead7;
+    color: #1a1a2e;
+    border: #1a1a2e solid 8px;
+    border-radius: 15px;
+}
+
+    #blog .right .paginationNav nav{
+        border: none !important;
+    }
+
+    #blog .right img {
+        border-radius: 15px;
+    }
+
+    #blog .right .col-12 .btnDevam a {
+        border: #1a1a2e solid 3px;
+        border-radius: 5px;
+        background-color: #1a1a2e;
+        color: #76ead7;
+    }
+
+        #blog .right .col-12 .btnDevam a:hover {
+            background-color: #76ead7;
+            color: #1a1a2e;
+        }
+
+    #blog .right .pagination {
+        color: #1a1a2e !important;
+    }
+/*BLOGDETAY*/
+#blogDetay {
+    background-color: #76ead7;
+    color: #1a1a2e;
+    border: #1a1a2e solid 8px;
+    border-radius: 15px;
+}
+
+    #blogDetay img {
+        border-radius: 10px;
+    }
+
+    #blogDetay .yorumYap {
+        border-left: dotted 6px #1a1a2e;
+    }
+
+        #blogDetay .yorumYap button {
+            font-size: 18px;
+            border: #1a1a2e solid 3px;
+            color: #76ead7;
+            background-color: #1a1a2e;
+        }
+
+            #blogDetay .yorumYap button:hover {
+                color: #1a1a2e;
+                background-color: #76ead7;
+            }
+
+#yorumlar {
+    border: #1a1a2e solid 4px;
+    border-radius: 6px;
+}
+/*MORE*/
+#more .cerceve {
+    margin-top: 5%;
+    background-color: #76ead7;
+    color: #1a1a2e;
+    border: #1a1a2e solid 8px;
+    border-radius: 15px;
+}
+
+#more .aciklama {
+    padding: 50px 50px 100px 50px;
+    font-size: 1.5rem;
+}

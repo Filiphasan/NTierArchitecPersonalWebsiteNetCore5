@@ -1,0 +1,161 @@
+﻿<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="~/AdminDoc/js/scripts.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script src="~/AdminDoc/assets/demo/datatables-demo.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/trumbowyg.min.js" integrity="sha512-sffB9/tXFFTwradcJHhojkhmrCj0hWeaz8M05Aaap5/vlYBfLx5Y7woKi6y0NrqVNgben6OIANTGGlojPTQGEw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/noembed/trumbowyg.noembed.min.js" integrity="sha512-kQBVtTrI8+oPQr/W5HKbu2+Xpe2IMcZFS7GIUp+xU4rrbXja/xPl1oNYjCP/FMDCR6iRyH68YtOdBTRmNP3wtw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/upload/trumbowyg.upload.min.js" integrity="sha512-8D+Ieew4T8YJv7/LO6YUyrFkvHC19wjD+7FeK1+johrEd9zAGp0W4dQuDqCDewou92ZTN9oP7pzOql5V/JgPxg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/giphy/trumbowyg.giphy.min.js" integrity="sha512-M24xsq12e+COVYuJylA1ocaT1fhyK0PqsZr3ND/DGifqDZZvasFm7MBq8+W+cNR0+aV7amRnDb6sPa14Yb/iYw==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/insertaudio/trumbowyg.insertaudio.min.js" integrity="sha512-cLdCDB1bnLN6DKI0lF2wAloTvBNK+xi+nTLaRObBFIqpgTqatxuXRiYtxNH3zgvMQfSy8hoGweoSHCSJfpgc1A==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/colors/trumbowyg.colors.min.js" integrity="sha512-iT7g30i1//3OBZsfoc5XmlULnKQKyxir582Z9fIFWI6+ohfrTdns118QYhCTt0d09aRGcE7IRvCFjw2wngaqRQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontsize/trumbowyg.fontsize.min.js" integrity="sha512-DOJaq3OCe5hLSr73aQBMiJY4kc+L5UwessOl6g2oxyy7VDnZVWt+TgWVy2nh2ypf7bwoaxZmPnIMiRC5PNZecA==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/indent/trumbowyg.indent.min.js" integrity="sha512-KVXf3B4sZXWXCH1k5ZfHnpXmx5/U1rhclBt2Cum6pc7XfccC6PJXhqt6QrrYHCrLQYk8GVcDfJrNyYNxKCtydg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/preformatted/trumbowyg.preformatted.min.js" integrity="sha512-H8bz2LLKz+AgS8lOgmZqGdq/dzdC8+lBUxDNiy5/E1ALSb193K9YNcoIeyfDk/z/qIQpEy+QFx4W+kT/bb0c3Q==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/table/trumbowyg.table.min.js" integrity="sha512-GWCV3uyQnGucExuHy3HQGz6LAO7buXoE54KhmxBd+eHbAAcdBI67fpjEMk/lTpRb9FT6FlLI0q2QI31RlvaQHg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Trumbowyg/2.23.0/plugins/fontfamily/trumbowyg.fontfamily.min.js" integrity="sha512-tDDpWlhruXFSzPin7PeSOo/ZklJv354ZUibgoTnthgO9lQUiNn4etCFGNwT4c3WUCZ1jWZgOVrXGMqiApe9sBg==" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $('#myDataTable').DataTable({
+            "lengthMenu": [[3, 5, 10, -1], [3, 5, 10, "All"]]
+        });
+        $('#editor')
+            .trumbowyg({
+                btnsDef: {
+                    // Create a new dropdown
+                    image: {
+                        dropdown: ['insertImage', 'noembed'],
+                        ico: 'insertImage'
+                    }
+                },
+                // Redefine the button pane
+                btns: [
+                    ['viewHTML'],
+                    ['formatting'],
+                    ['fontsize'],
+                    ['fontfamily'],
+                    ['strong', 'em', 'del'],
+                    ['superscript', 'subscript'],
+                    ['foreColor', 'backColor'],
+                    ['link'],
+                    ['image'], // Our fresh created dropdown
+                    ['upload'],
+                    ['giphy'],
+                    ['insertAudio'],
+                    ['indent', 'outdent'],
+                    ['table'],
+                    ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+                    ['unorderedList', 'orderedList'],
+                    ['horizontalRule'],
+                    ['removeformat'],
+                    ['preformatted'],
+                    ['fullscreen']
+                ],
+                plugins: {
+                    // Add imagur parameters to upload plugin for demo purposes
+                    upload: {
+                        serverPath: '/Admin/UploadImage/UploadTrombovImage',
+                        fileFieldName: 'image',
+                        urlPropertyName: 'url'
+                    },
+                    giphy: {
+                        apiKey: '6PvZpJrhIq66yJmVkXDVhicVve9wmfhj'
+                    }
+                }
+            });
+    });
+</script>
+ @*<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'), {
+
+            ckfinder: {
+                uploadUrl: '/Admin/UploadImage/UploadCKEditorImage'
+            },
+
+            toolbar: {
+                items: [
+                    'heading',
+                    'exportWord',
+                    'exportPdf',
+                    'htmlEmbed',
+                    '|',
+                    'fontFamily',
+                    'fontSize',
+                    'fontColor',
+                    'fontBackgroundColor',
+                    'highlight',
+                    '|',
+                    'bold',
+                    'italic',
+                    'underline',
+                    'strikethrough',
+                    'subscript',
+                    'superscript',
+                    'link',
+                    'removeFormat',
+                    '|',
+                    'code',
+                    'codeBlock',
+                    '|',
+                    'bulletedList',
+                    'todoList',
+                    'numberedList',
+                    '|',
+                    'restrictedEditing',
+                    'alignment',
+                    'indent',
+                    'outdent',
+                    '|',
+                    'imageUpload',
+                    'imageInsert',
+                    'blockQuote',
+                    'insertTable',
+                    'mediaEmbed',
+                    'undo',
+                    'redo',
+                    '|',
+                    'horizontalLine',
+                    'MathType',
+                    'ChemType',
+                    'specialCharacters'
+                ]
+            },
+            language: 'tr',
+            image: {
+                toolbar: [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side',
+                    'linkImage'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells',
+                    'tableCellProperties',
+                    'tableProperties'
+                ]
+            },
+            licenseKey: '',
+
+
+        })
+        .then(editor => {
+            window.editor = editor;
+
+        })
+        .catch(error => {
+            console.error('Oops, something went wrong!');
+            console.error('Please, report the following error on https://github.com/ckeditor/ckeditor5/issues with the build id and the error stack trace:');
+            console.warn('Build id: hpa9yc4qeq3c-ov9sv55j7wwl');
+            console.error(error);
+        }
+    );
+
+</script>*@
+
+

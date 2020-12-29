@@ -1,0 +1,63 @@
+﻿@model MyWebApp.Entities.Dtos.ContactInfoDtos.ContactInfoDto
+
+@{
+    ViewBag.Title = "İletişim Bilgisi";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item">İletişim Bilgisi</li>
+</ol>
+<hr />
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <h2 class="text-center">İletişim Bilgisi</h2>
+    <table class="table table-responsive table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Telefon Numarası</th>
+                <th>E-Mail</th>
+                <th>Kısa Adres</th>
+                <th>Uzun Adres</th>
+                <th>Oluşturulma Zamanı</th>
+                <th>Oluşturan</th>
+                <th>Düzenlenme Zamanı</th>
+                <th>Düzenleyen</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tfoot class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Telefon Numarası</th>
+                <th>E-Mail</th>
+                <th>Kısa Adres</th>
+                <th>Uzun Adres</th>
+                <th>Oluşturulma Zamanı</th>
+                <th>Oluşturan</th>
+                <th>Düzenlenme Zamanı</th>
+                <th>Düzenleyen</th>
+                <th>İşlem</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>@Model.ContactInfo.Id</td>
+                <td>@Model.ContactInfo.PhoneNumber</td>
+                <td>@Model.ContactInfo.Email</td>
+                <td>@Model.ContactInfo.ShortAdress</td>
+                <td>@Model.ContactInfo.LongAdress</td>
+                <td>@Model.ContactInfo.CreatedTime.ToShortDateString()</td>
+                <td>@Model.ContactInfo.CreatedByName</td>
+                <td>@Model.ContactInfo.ModifiedTime.ToShortDateString()</td>
+                <td>@Model.ContactInfo.ModifiedByName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="Contact" asp-action="Edit" asp-route-id="@Model.ContactInfo.Id" title="Düzenle"><i class="fas fa-edit"></i></a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

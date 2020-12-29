@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Yönetim Paneli";
+    Layout = "_Layout";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item">Admin</li>
+</ol>
+<hr />
+<div class="row ml-1 my-3">
+    <div class="card text-white bg-primary col-xl-2 col-md-5 my-3">
+        <div class="card-header text-center"><i class="far fa-list-alt"></i> Yetenek Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.SkillCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-warning col-xl-2 col-md-5 my-3 offset-md-1">
+        <div class="card-header text-center"><i class="fas fa-images"></i> Slider Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.SliderCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-danger col-xl-2 col-md-5 my-3 offset-xl-1">
+        <div class="card-header text-center"><i class="fas fa-sms"></i> Mesaj Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.MessageCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-success col-xl-2 col-md-5 my-3 offset-md-1">
+        <div class="card-header text-center"><i class="fas fa-university"></i> Eğitim Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.EducationCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-primary col-xl-2 col-md-5 my-3">
+        <div class="card-header text-center"><i class="far fa-address-card"></i> Deneyim Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.ExperienceCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-warning col-xl-2 col-md-5 my-3 offset-md-1">
+        <div class="card-header text-center"><i class="fas fa-snowboarding"></i> Hobi Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.InterestedCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-danger col-xl-2 col-md-5 my-3 offset-xl-1">
+        <div class="card-header text-center"><i class="far fa-newspaper"></i> Makale Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.ArticleCount</p>
+        </div>
+    </div>
+    <div class="card text-white bg-success col-xl-2 col-md-5 my-3 offset-md-1">
+        <div class="card-header text-center"><i class="fas fa-th-list"></i> Kategori Sayısı</div>
+        <div class="card-body">
+            <p class="card-text text-center">@ViewBag.CategoryCount</p>
+        </div>
+    </div>
+</div>

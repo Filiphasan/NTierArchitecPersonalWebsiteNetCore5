@@ -1,0 +1,87 @@
+﻿@model MyWebApp.Entities.Dtos.SiteIdentityDtos.SiteIdentityDto
+
+@{
+    ViewBag.Title = "Site Kimlik Bilgileri Detaylar";
+ }
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="SiteIdentity">Site Kimlik Bilgileri</a></li>
+    <li class="breadcrumb-item">Site Kimlik Bilgileri Detayları</li>
+</ol><hr />
+<div>
+    <h2 class="text-center">Site Kimlik Bilgileri</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Site Başlık
+        </dt>
+
+        <dd>
+            @Model.SiteIdentity.Title
+        </dd>
+
+        <dt>
+            Seo Etiketleri
+        </dt>
+
+        <dd>
+            @Model.SiteIdentity.Keywords
+        </dd>
+
+        <dt>
+            Site Açıklama
+        </dt>
+
+        <dd>
+            @Model.SiteIdentity.Description
+        </dd>
+
+        <dt>
+            Site Logo
+        </dt>
+
+        <dd style="font-size:30px">
+            @Html.Raw(Model.SiteIdentity.LogoFA)
+        </dd>
+
+        <dt>
+            Logo Yazısı
+        </dt>
+        <dd>
+            @Model.SiteIdentity.LogoText
+        </dd>
+
+        <dt>
+            Oluşturulma Tarihi
+        </dt>
+        <dd>
+            @Model.SiteIdentity.CreatedTime
+        </dd>
+
+        <dt>
+            Oluşturan
+        </dt>
+        <dd>
+            @Model.SiteIdentity.CreatedByName
+        </dd>
+
+        <dt>
+            Düzenlenme Tarihi
+        </dt>
+        <dd>
+            @Model.SiteIdentity.ModifiedTime
+        </dd>
+
+        <dt>
+            Düzenleyen
+        </dt>
+        <dd>
+            @Model.SiteIdentity.ModifiedByName
+        </dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="SiteIdentity" asp-area="Admin" asp-route-id="@Model.SiteIdentity.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="SiteIdentity" asp-area="Admin"><i class="fas fa-info-circle"></i> Listeye Dön</a>
+</div>
+    

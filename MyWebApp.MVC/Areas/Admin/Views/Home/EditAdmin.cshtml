@@ -1,0 +1,49 @@
+﻿@model MyWebApp.Entities.Dtos.AdminDtos.AdminUpdateDto
+
+@{
+    ViewBag.Title = "Admin Bilgisi Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-action="Index">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-action="Index">Ayarlar</a></li>
+    <li class="breadcrumb-item">Admin Bilgisi Düzenleme</li>
+</ol>
+<hr />
+<h2 class="text-center">Admin Bilgisi Düzenleme</h2>
+<form method="post" asp-action="EditAdmin">
+    <input hidden asp-for="Id" />
+    <input hidden value="@Model.PasswordHash" name="oldPsswrd"/>
+    <input hidden value="@Model.SQAnswerHash" name="oldSQHash"/>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PasswordHash"></label>
+        <input asp-for="PasswordHash" class="form-control" />
+        <span asp-validation-for="PasswordHash" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SecurituQuestion"></label>
+        <input asp-for="SecurituQuestion" class="form-control" />
+        <span asp-validation-for="SecurituQuestion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SQAnswerHash"></label>
+        <input asp-for="SQAnswerHash" class="form-control" />
+        <span asp-validation-for="SQAnswerHash" class="text-danger"></span>
+    </div>
+    <input hidden asp-for="IsActive" type="checkbox" checked />
+    <input hidden asp-for="IsDeleted" type="checkbox" />
+
+    <div class="form-group">
+        <div class="offset-lg-1">
+            <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Setting" class="btn btn-danger"><i class="fas fa-undo"></i> Listeye Dön</a>
+<br />
+@ViewBag.psHash

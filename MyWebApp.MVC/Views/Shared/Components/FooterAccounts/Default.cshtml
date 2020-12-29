@@ -1,0 +1,10 @@
+﻿@model MyWebApp.Entities.Dtos.SocialMediaAccountDtos.SocialMediaAccountListDto
+
+@foreach (var item in Model.SocialMediaAccounts)
+{
+    <li class="list-inline-item">
+        <a href="@item.AccountUrl" class="px-2" style="font-size:2.5rem" title="@item.AccountUrl">
+            @Html.Raw(item.AccountFA)
+        </a>
+    </li>
+}

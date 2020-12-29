@@ -1,0 +1,54 @@
+﻿@model MyWebApp.Entities.Dtos.EducationDtos.EducationDto
+
+@{
+    ViewBag.Title = "Eğitim Bilgileri Silme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Education">Eğitim Listesi</a></li>
+    <li class="breadcrumb-item">Eğitim Bilgileri Silme</li>
+</ol>
+<hr />
+<h2 class="text-center">Eğitim Bilgileri Silme</h2><hr />
+<h3>@Model.Education.Title isimli eğitimi veritabanından silmek istiyor musunuz?</h3><hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Eğitim</dt>
+        <dd>@Model.Education.Title</dd>
+
+        <dt>Okul</dt>
+        <dd>@Model.Education.School</dd>
+
+        <dt>Eğitim Süreci</dt>
+        <dd>@Model.Education.Duration</dd>
+
+        <dt>Mezuniyet Notu</dt>
+        <dd>@Model.Education.Avarage</dd>
+
+        <dt>Açıklama</dt>
+        <dd>@Model.Education.Description</dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.Education.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.Education.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.Education.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.Education.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.Education.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.Education.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="DoHardDelete" asp-controller="Education" asp-area="Admin" asp-route-id="@Model.Education.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Bilgileri Sil</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Education" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

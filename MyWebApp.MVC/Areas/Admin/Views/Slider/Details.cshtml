@@ -1,0 +1,82 @@
+﻿@model MyWebApp.Entities.Dtos.HomePageSliderDtos.HomePageSliderDto
+
+@{
+    ViewBag.Title = "Slider Detayları";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Slider">Slider Listesi</a></li>
+    <li class="breadcrumb-item">Slider Detayları</li>
+</ol>
+<hr />
+<div>
+    <h2 class="text-center">Slider Detayları</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Başlık
+        </dt>
+        <dd>
+            @Model.HomePageSlider.Title
+        </dd>
+
+        <dt>
+            Kısa İçerik
+        </dt>
+        <dd>
+            @Model.HomePageSlider.ShortDescription
+        </dd>
+
+        <dt>
+            Silindi mi?
+        </dt>
+        <dd>
+            @Model.HomePageSlider.IsDeleted
+        </dd>
+
+        <dt>
+            Aktif mi?
+        </dt>
+        <dd>
+            @Model.HomePageSlider.IsActive
+        </dd>
+
+        <dt>
+            Oluşturulma Zamanı
+        </dt>
+        <dd>
+            @Model.HomePageSlider.CreatedTime
+        </dd>
+
+        <dt>
+            Oluşturan
+        </dt>
+        <dd>
+            @Model.HomePageSlider.CreatedByName
+        </dd>
+
+        <dt>
+            Düzenlenme Zamanı
+        </dt>
+        <dd>
+            @Model.HomePageSlider.ModifiedTime
+        </dd>
+
+        <dt>
+            Düzenleyen
+        </dt>
+        <dd>
+            @Model.HomePageSlider.ModifiedByName
+        </dd>
+
+        <dt>İçerik</dt>
+        <dd>
+            @Html.Raw(Model.HomePageSlider.LongDescription)
+        </dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="Slider" asp-area="Admin" asp-route-id="@Model.HomePageSlider.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Slider" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

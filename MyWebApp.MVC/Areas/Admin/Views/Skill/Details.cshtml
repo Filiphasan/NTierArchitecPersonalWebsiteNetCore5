@@ -1,0 +1,88 @@
+﻿@model MyWebApp.Entities.Dtos.SkillDtos.SkillDto
+
+@{
+    ViewBag.Title = "Yetenek Detayı";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Skill">Yetenekler Listesi</a></li>
+    <li class="breadcrumb-item">Yetenek Detayları</li>
+</ol>
+<hr />
+<div>
+    <h2 class="text-center">Yetenek Detayları</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Yetenek
+        </dt>
+
+        <dd>
+            @Model.Skill.Title
+        </dd>
+
+        <dt>
+            Yetenek Yüzdesi
+        </dt>
+
+        <dd>
+            % @Model.Skill.PercentageValue
+        </dd>
+
+        <dt>
+            Silindi mi?
+        </dt>
+
+        <dd>
+            @Model.Skill.IsDeleted
+        </dd>
+
+        <dt>
+            Aktif mi?
+        </dt>
+
+        <dd>
+            @Model.Skill.IsActive
+        </dd>
+
+        <dt>
+            Oluşturulma Zamanı
+        </dt>
+        <dd>
+            @Model.Skill.CreatedTime
+        </dd>
+
+        <dt>
+            Oluşturan
+        </dt>
+        <dd>
+            @Model.Skill.CreatedByName
+        </dd>
+
+        <dt>
+            Düzenlenme Zamanı
+        </dt>
+        <dd>
+            @Model.Skill.ModifiedTime
+        </dd>
+
+        <dt>
+            Düzenleyen
+        </dt>
+        <dd>
+            @Model.Skill.ModifiedByName
+        </dd>
+
+        <dt>
+            Not
+        </dt>
+        <dd>
+            @Model.Skill.Note
+        </dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="Edit" asp-controller="Skill" asp-area="Admin" asp-route-id="@Model.Skill.Id" class="btn btn-primary"><i class="fas fa-edit"></i> Bilgileri Düzenle</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Skill" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>

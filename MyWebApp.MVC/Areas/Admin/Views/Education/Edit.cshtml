@@ -1,0 +1,56 @@
+﻿@model MyWebApp.Entities.Dtos.EducationDtos.EducationUpdateDto
+
+@{
+    ViewBag.Title = "Eğitim Bilgileri Düzenleme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Education">Eğitim Listesi</a></li>
+    <li class="breadcrumb-item">Eğitim Bilgileri Düzenleme</li>
+</ol>
+<hr />
+<h2 class="text-center">Eğitim Bilgileri Düzenleme</h2>
+<form method="post" asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="School"></label>
+        <input asp-for="School" class="form-control" />
+        <span asp-validation-for="School" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Duration"></label>
+        <input asp-for="Duration" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Avarage"></label>
+        <input asp-for="Avarage" class="form-control" />
+        <span asp-validation-for="Avarage" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label class="form-check-label" asp-for="IsActive"></label>
+        <input type="checkbox" asp-for="IsActive" class="form-check" />
+        <span asp-validation-for="IsActive"></span>
+    </div>
+    <div class="form-group">
+        <label class="form-check-label" asp-for="IsDeleted"></label>
+        <input type="checkbox" asp-for="IsDeleted" class="form-check"/>
+        <span asp-validation-for="IsDeleted"></span>
+    </div>
+    <div class="form-group">
+        <div class="offset-lg-1 col-lg-11">
+            <button type="submit" class="btn btn-success"><i class="far fa-save"></i> Bilgileri Kaydet</button>
+        </div>
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-danger"><i class="fas fa-undo"></i> Listeye Dön</a>

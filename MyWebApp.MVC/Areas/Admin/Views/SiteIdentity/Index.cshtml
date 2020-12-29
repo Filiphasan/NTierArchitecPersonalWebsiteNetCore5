@@ -1,0 +1,66 @@
+﻿@model MyWebApp.Entities.Dtos.SiteIdentityDtos.SiteIdentityDto
+
+@{ 
+    ViewBag.Title = "Site Kimlik Bilgileri";
+    Layout = "_Layout";
+}
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item">Site Kimlik Bilgileri</li>
+</ol><hr />
+@if (Model.ResultStatus == ResultStatus.Success)
+{
+    <h2 class="text-center">Site Kimlik Bilgileri</h2>
+    <table class="table table-responsive-lg table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Başlık</th>
+                <th>Etiketler</th>
+                <th>Açıklama</th>
+                <th>LogoFA</th>
+                <th>Logo Yazısı</th>
+                <th>Oluşturulma Tarihi</th>
+                <th>Oluşturan</th>
+                <th>Düzenlenme Tarihi</th>
+                <th>Düzenleyen</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tfoot class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Başlık</th>
+                <th>Etiketler</th>
+                <th>Açıklama</th>
+                <th>LogoFA</th>
+                <th>Logo Yazısı</th>
+                <th>Oluşturulma Tarihi</th>
+                <th>Oluşturan</th>
+                <th>Düzenlenme Tarihi</th>
+                <th>Düzenleyen</th>
+                <th>İşlem</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>@Model.SiteIdentity.Id</td>
+                <td>@Model.SiteIdentity.Title</td>
+                <td>@Model.SiteIdentity.Keywords</td>
+                <td>@Model.SiteIdentity.Description</td>
+                <td>@Html.Raw(Model.SiteIdentity.LogoFA)</td>
+                <td>@Model.SiteIdentity.LogoText</td>
+                <td>@Model.SiteIdentity.CreatedTime.ToShortDateString()</td>
+                <td>@Model.SiteIdentity.CreatedByName</td>
+                <td>@Model.SiteIdentity.ModifiedTime.ToShortDateString()</td>
+                <td>@Model.SiteIdentity.ModifiedByName</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a class="btn btn-primary" asp-area="Admin" asp-controller="SiteIdentity" asp-action="Edit" asp-route-id="@Model.SiteIdentity.Id" title="Düzenle"><i class="fas fa-edit"></i></a>
+                        <a class="btn btn-secondary" asp-area="Admin" asp-controller="SiteIdentity" asp-action="Details" asp-route-id="@Model.SiteIdentity.Id" title="Detaylı İncele"><i class="fas fa-info-circle"></i></a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}

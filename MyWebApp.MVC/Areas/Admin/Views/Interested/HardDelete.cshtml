@@ -1,0 +1,44 @@
+﻿@model MyWebApp.Entities.Dtos.InterestedDtos.InterestedDto
+
+@{
+    ViewBag.Title = "Hobi Silme";
+}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Home">Admin</a></li>
+    <li class="breadcrumb-item"><a asp-area="Admin" asp-action="Index" asp-controller="Interested">Hobi Listesi</a></li>
+    <li class="breadcrumb-item">Hobi Silme</li>
+</ol>
+<hr />
+<h2 class=" text-center">Hobi Silme</h2>
+<hr />
+<h3>Seçili hobiyi veritabanından silmek istiyor musunuz?</h3>
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>Hobi</dt>
+        <dd>@Model.Interested.Text</dd>
+
+        <dt>Silindi mi?</dt>
+        <dd>@Model.Interested.IsDeleted</dd>
+
+        <dt>Aktif mi?</dt>
+        <dd>@Model.Interested.IsActive</dd>
+
+        <dt>Oluşturulma Zamanı</dt>
+        <dd>@Model.Interested.CreatedTime</dd>
+
+        <dt>Oluşturan</dt>
+        <dd>@Model.Interested.CreatedByName</dd>
+
+        <dt>Düzenlenme Zamanı</dt>
+        <dd>@Model.Interested.ModifiedTime</dd>
+
+        <dt>Düzenleyen</dt>
+        <dd>@Model.Interested.ModifiedByName</dd>
+    </dl>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <a asp-action="DoHardDelete" asp-controller="Interested" asp-area="Admin" asp-route-id="@Model.Interested.Id" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Bilgileri Sil</a>
+    <a class="btn btn-warning" asp-action="Index" asp-controller="Slider" asp-area="Admin"><i class="fas fa-undo"></i> Listeye Dön</a>
+</div>
