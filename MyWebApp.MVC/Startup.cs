@@ -20,7 +20,7 @@ namespace MyWebApp.MVC
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddControllersWithViews();
             services.AddAutoMapper(typeof(AboutMeProfile), typeof(AdminProfile), typeof(ArticleProfile), typeof(CategoryProfile), typeof(CommentProfile), typeof(ContactInfoProfile), typeof(EducationProfile), typeof(ExperienceProfile), typeof(HomePageSliderProfile), typeof(InterestedProfile), typeof(MessageProfile), typeof(SiteIdentityProfile), typeof(SkillProfile), typeof(SocialMediaAccountProfile), typeof(SummaryProfile));
             services.LoadMyService();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt => { opt.LoginPath = "/Admin/Session/LogIn"; });

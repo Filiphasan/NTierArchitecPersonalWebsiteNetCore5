@@ -27,7 +27,7 @@ namespace MyWebApp.Data.Concrete.EntityFramework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Server=DESKTOP-59CJCI3;Database=MyWebApp;Trusted_Connection=true;");
+            optionsBuilder.UseSqlServer(connectionString: @"Server=185.255.93.214\MSSQLSERVER2017;user id=hasanerdal; password=d1m3Np@3;Database=webappdb;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
